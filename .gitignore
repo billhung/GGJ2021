@@ -10,6 +10,17 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+#new
+Library/
+Logs/
+obj/
+Temp/
+Packages/
+
+
+
+
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
