@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class AsyncSceneLoadScript : MonoBehaviour
+public class AsyncSceneLoadMainGame : MonoBehaviour
 {
     public Text m_Text;
     public Button m_Button;
@@ -27,7 +27,7 @@ public class AsyncSceneLoadScript : MonoBehaviour
         yield return null;
 
         //Begin to load the Scene you specify
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(1);// "Assets/Scenes/DrunkOpeningScene.unity");
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(2);// "Assets/Scenes/DrunkOpeningScene.unity");
         //Don't let the Scene activate until you allow it to
         asyncOperation.allowSceneActivation = false;
         Debug.Log("Pro :" + asyncOperation.progress);
@@ -35,13 +35,13 @@ public class AsyncSceneLoadScript : MonoBehaviour
         while (!asyncOperation.isDone)
         {
             //Output the current progress
-            m_Text.text = "Loading progress: " + (asyncOperation.progress * 100) + "%";
+            //m_Text.text = "Loading progress: " + (asyncOperation.progress * 100) + "%";
 
             // Check if the load has finished
             if (asyncOperation.progress >= 0.9f)
             {
                 //Change the Text to show the Scene is ready
-                m_Text.text = "Press SPACE to start";
+                //m_Text.text = "Press SPACE to start";
                 //Wait to you press the space key to activate the Scene
                 if (Input.GetKeyDown(KeyCode.Space)) { 
                     //Activate the Scene
