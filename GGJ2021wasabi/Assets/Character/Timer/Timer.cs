@@ -11,25 +11,28 @@ public class Timer : MonoBehaviour
 
     private Text text;
 
+    [SerializeField] public float TimerMax = 180;
+    [SerializeField] public float CT;
+
     // Start is called before the first frame update
     void Start()
     {
-        C = 0f;
-        countup1 = 0;
-        countup2 = 0;
+        C = TimerMax;
+        countup1 = (int)C % 60;
+        countup2 = (int)C / 60;
         text = GetComponent<Text>();
+        CT = 0;
 }
 
     // Update is called once per frame
     void Update()
     {
-        C += Time.deltaTime;
+        C -= Time.deltaTime;
         if(C >= 60)
         {
-            C = 0f;
-            countup2++;
+            countup1 = (int)C % 60;
+            countup2 = (int)C / 60;
         }
-        countup1 = (int)C;
         text.text = countup2.ToString("D2") + ":" + countup1.ToString("D2");
     }
 
