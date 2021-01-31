@@ -15,7 +15,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         [SerializeField] float m_MoveSpeedMultiplier = 1f;
         [SerializeField] float m_AnimSpeedMultiplier = 1f;
         [SerializeField] float m_GroundCheckDistance = 0.1f;
-        private const int AddForcePower = 10;
+        private const int AddForcePower = 20;
         private const int TurnChangeTimer = 80;
 
         Rigidbody m_Rigidbody;
@@ -214,17 +214,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             float OriginlSpeed = m_StationaryTurnSpeed * Random.value;
             float turnSpeed = Mathf.Lerp(OriginlSpeed, m_MovingTurnSpeed, m_ForwardAmount);
             transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
-
+            Debug.Log(m_direction +""+ m_Rigidbody.velocity);
             //original 進行方向に速度制限を設けて進む            
             if (m_Rigidbody.velocity.x < 3 && m_Rigidbody.velocity.x > -3)
             {
                 m_Rigidbody.AddForce(m_direction.x * AddForcePower, 0, 0);
+                Debug.Log("x+");
             }
             //Vector3 transformPower = new Vector3(0f,0,30f);
             if (m_Rigidbody.velocity.z < 3 && m_Rigidbody.velocity.z > -3)
             {
                 m_Rigidbody.AddForce(0, 0, m_direction.z * AddForcePower);
+                Debug.Log("z+");
             }
+            //m_Rigidbody.AddForce(m_direction * AddForcePower);
 
             //original 進行方向を割り出す
             if (m_direction.x > 0 && m_direction.z > 0) _Direction = Direction.RU;
@@ -250,6 +253,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     StateNum = 0;
                 }
                 //Debug.Log(_state);
+                
                 switch (_Direction)
                 {
                     case Direction.RU:
@@ -294,6 +298,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                         break;
                     default: Debug.LogError("!!ランダム方向移動でエラー!!\n\r!! Error in random direction movement !! "); break;
                 }
+                
                 /*
                 if (_state == State.Left)
                 {
