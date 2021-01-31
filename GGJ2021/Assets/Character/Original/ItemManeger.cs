@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ItemManeger : MonoBehaviour
 {
+    /*
     private const int FaseNum = 3;
     [SerializeField] public GameObject[] F_1 = new GameObject[FaseNum];
     [SerializeField] public GameObject[] F_2 = new GameObject[FaseNum];
     [SerializeField] public GameObject[] F_3 = new GameObject[FaseNum];
+    */
+    [SerializeField] public GameObject[] F; 
     private bool[] F_Num = new bool[FaseNum];
     private int F_Now;
     private bool F_Swiche;
@@ -18,8 +21,17 @@ public class ItemManeger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         //アイテムをすべて見えなくする
         for(int i = 0; i < F_1.Length; i++)
+        {
+            F_1[i].SetActive(false);
+            F_2[i].SetActive(false);
+            F_3[i].SetActive(false);
+        }
+        *
+        *         
+        *         for(int i = 0; i < F_1.Length; i++)
         {
             F_1[i].SetActive(false);
             F_2[i].SetActive(false);
