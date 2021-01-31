@@ -30,8 +30,9 @@ public class ItemManeger : MonoBehaviour
             F_2[i].SetActive(false);
             F_3[i].SetActive(false);
         }
-        */        
+        */
         //登録されている落とし物をすべて削除する
+        Debug.Log(F.Length);
         for(int i = 0; i < F.Length; i++)
         {
             F[i].SetActive(false);
@@ -90,6 +91,7 @@ public class ItemManeger : MonoBehaviour
     public void GetItem()
     {
         F_Count++;
+        Debug.Log(F_Count);
     }
 
     public void GoRisult(bool gole)
