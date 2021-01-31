@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GetItem : MonoBehaviour
 {
@@ -31,7 +30,7 @@ public class GetItem : MonoBehaviour
         if (other.tag == "Company")
         {
             //シーン遷移を行う　リザルトに行く
-            SceneManager.LoadScene("Risult");
+            _ItemManeger.GoRisult(true);
         }
     }
 
