@@ -48,9 +48,10 @@ public class ItemManeger : MonoBehaviour
         for (int i = 0; i < ItemNum; i++)
         {
             int R = Random.Range(0, F.Length);
-            if(F[i].activeInHierarchy == false)
+            Debug.Log(R);
+            if(F[R].activeInHierarchy == false)
             {
-                F[i].SetActive(true);
+                F[R].SetActive(true);
             }
         }
 
