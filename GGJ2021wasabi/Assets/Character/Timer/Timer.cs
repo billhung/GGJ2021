@@ -31,10 +31,12 @@ public class Timer : MonoBehaviour
     void Update()
     {
         C -= Time.deltaTime;
-        if(C >= 60)
+        countup1 = (int)C % 60;
+        countup2 = (int)C / 60;
+        if (C < 0)
         {
-            countup1 = (int)C % 60;
-            countup2 = (int)C / 60;
+            countup1 = 0;
+            countup2 = 0;
         }
         text.text = countup2.ToString("D2") + ":" + countup1.ToString("D2");
 
