@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/04_End2_LaughedAt.unity
     guid: 80e91eb9d675076458dcb3300680fbc3
+  - enabled: 1
+    path: Assets/Scenes/04_End3_GameClear.unity
+    guid: c4c8215b368196e469e8b7f554386ee5
   m_configObjects: {}
