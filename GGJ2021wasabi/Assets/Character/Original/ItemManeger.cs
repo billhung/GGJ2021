@@ -82,7 +82,7 @@ public class ItemManeger : MonoBehaviour
         }
         else
         {//会社にたどり着けない
-            SceneManager.LoadScene("04_End1_TimeOver.unity");
+            SceneManager.LoadScene("04_End1_TimeOver");
         }
     }
 }
