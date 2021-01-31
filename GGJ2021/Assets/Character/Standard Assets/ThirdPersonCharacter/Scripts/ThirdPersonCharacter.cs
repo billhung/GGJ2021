@@ -214,18 +214,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             float OriginlSpeed = m_StationaryTurnSpeed * Random.value;
             float turnSpeed = Mathf.Lerp(OriginlSpeed, m_MovingTurnSpeed, m_ForwardAmount);
             transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
-            Debug.Log(m_direction +""+ m_Rigidbody.velocity);
+            //Debug.Log(m_direction +""+ m_Rigidbody.velocity);
             //original 進行方向に速度制限を設けて進む            
             if (m_Rigidbody.velocity.x < 3 && m_Rigidbody.velocity.x > -3)
             {
                 m_Rigidbody.AddForce(m_direction.x * AddForcePower, 0, 0);
-                Debug.Log("x+");
+                //Debug.Log("x+");
             }
             //Vector3 transformPower = new Vector3(0f,0,30f);
             if (m_Rigidbody.velocity.z < 3 && m_Rigidbody.velocity.z > -3)
             {
                 m_Rigidbody.AddForce(0, 0, m_direction.z * AddForcePower);
-                Debug.Log("z+");
+                //Debug.Log("z+");
             }
             //m_Rigidbody.AddForce(m_direction * AddForcePower);
 

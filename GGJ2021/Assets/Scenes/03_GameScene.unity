@@ -20810,6 +20810,26 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5394698255363085327, guid: a0fb3147be1fec94f9c2fa0b265a9450,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5394698255363085327, guid: a0fb3147be1fec94f9c2fa0b265a9450,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5394698255363085327, guid: a0fb3147be1fec94f9c2fa0b265a9450,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 5394698255363085327, guid: a0fb3147be1fec94f9c2fa0b265a9450,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 540
+      objectReference: {fileID: 0}
     - target: {fileID: 5394698255583555725, guid: a0fb3147be1fec94f9c2fa0b265a9450,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -20838,7 +20858,7 @@ PrefabInstance:
     - target: {fileID: 5394698255583555725, guid: a0fb3147be1fec94f9c2fa0b265a9450,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 89.3
+      value: 89.299805
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0fb3147be1fec94f9c2fa0b265a9450, type: 3}
@@ -31455,7 +31475,7 @@ PrefabInstance:
     - target: {fileID: 2788119418026257330, guid: b73ad87c55be55b46aa80f5d4409698e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 160
+      value: 199.9
       objectReference: {fileID: 0}
     - target: {fileID: 2788119418026257330, guid: b73ad87c55be55b46aa80f5d4409698e,
         type: 3}
