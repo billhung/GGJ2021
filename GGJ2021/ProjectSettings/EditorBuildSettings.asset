@@ -13,8 +13,14 @@ EditorBuildSettings:
     guid: 6fb08f12271af1e4f929a0378fccddd0
   - enabled: 1
     path: Assets/Scenes/03_GameScene.unity
-    guid: da85496336993574d9126cef23a6e745
+    guid: b5dfa710d3cbeb64b8c4511717c36904
+  - enabled: 1
+    path: Assets/Scenes/04_End1_TimeOver.unity
+    guid: b6c33f95964dd1f4da0dd7266a1fda57
   - enabled: 0
-    path: Assets/Character/Character_test.unity
-    guid: 349b631e5d662284193f5f5eb6a0a503
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

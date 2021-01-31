@@ -32,6 +32,7 @@ public class GetItem : MonoBehaviour
         {
             //シーン遷移を行う　リザルトに行く
             SceneManager.LoadScene("Risult");
+            _ItemManeger.GoRisult(true);
         }
     }
 
