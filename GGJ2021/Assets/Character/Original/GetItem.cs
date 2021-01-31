@@ -31,7 +31,6 @@ public class GetItem : MonoBehaviour
         if (other.tag == "Company")
         {
             //シーン遷移を行う　リザルトに行く
-            SceneManager.LoadScene("Risult");
             _ItemManeger.GoRisult(true);
         }
     }
