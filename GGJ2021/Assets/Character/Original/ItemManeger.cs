@@ -117,16 +117,16 @@ public class ItemManeger : MonoBehaviour
             //アイテムを全部取得している　かつ　第3フェーズである
             if (F_Count >= ItemNum)
             {
-                SceneManager.LoadScene("01_InitAsyncSceneLoad");
+                SceneManager.LoadScene(5);
             }
             else
             {
-                SceneManager.LoadScene("02_DrunkOpeningScene");
+                SceneManager.LoadScene(4);
             }
         }
         else
         {//会社にたどり着けない
-            SceneManager.LoadScene("04_End1_TimeOver");
+            SceneManager.LoadScene(3);
         }
     }
 }
