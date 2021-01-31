@@ -41,7 +41,7 @@ public class AsyncSceneLoadScript : MonoBehaviour
             if (asyncOperation.progress >= 0.9f)
             {
                 //Change the Text to show the Scene is ready
-                m_Text.text = "Press SPACE to start";
+                m_Text.text = "スペースキーを押して Press SPACE to start";
                 //Wait to you press the space key to activate the Scene
                 if (Input.GetKeyDown(KeyCode.Space)) { 
                     //Activate the Scene
