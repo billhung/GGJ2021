@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItemManeger : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ItemManeger : MonoBehaviour
     private int F_Now;
     private bool F_Swiche;
     private int F_Count;
+    private bool F_Clear;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,7 @@ public class ItemManeger : MonoBehaviour
         F_Now = 0;
         F_Swiche = true;
         F_Count = FaseNum;
+        F_Clear = false;
     }
 
     // Update is called once per frame
@@ -52,7 +55,7 @@ public class ItemManeger : MonoBehaviour
             if(F_Now >= FaseNum)
             {
                 F_Swiche = false;
-                F_Count = -1;
+                F_Clear = true;
             }
         }
     }
@@ -61,5 +64,25 @@ public class ItemManeger : MonoBehaviour
     public void GetItem()
     {
         F_Count--;
+    }
+
+    public void GoRisult(bool gole)
+    {
+        if (gole)
+        {
+            //アイテムを全部取得している　かつ　第3フェーズである
+            if(F_Count == 0 && F_Clear)
+            {
+                SceneManager.LoadScene("Usually");
+            }
+            else
+            {
+                SceneManager.LoadScene("Fool");
+            }
+        }
+        else
+        {//会社にたどり着けない
+            SceneManager.LoadScene("Angry");
+        }
     }
 }

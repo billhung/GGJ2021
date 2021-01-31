@@ -274,21 +274,21 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     case Direction.RD:
                         if (_state == State.Left)
                         {
-                            m_Rigidbody.AddForce(0.1f, 0, 0.1f);
+                            m_Rigidbody.AddForce(0.1f, 0, 0.1f, ForceMode.Impulse);
                         }
                         else
                         {
-                            m_Rigidbody.AddForce(-0.1f, 0, -0.1f);
+                            m_Rigidbody.AddForce(-0.1f, 0, -0.1f, ForceMode.Impulse);
                         }
                         break;
                     case Direction.LD:
                         if (_state == State.Left)
                         {
-                            m_Rigidbody.AddForce(-0.1f, 0, 0.1f);
+                            m_Rigidbody.AddForce(-0.1f, 0, 0.1f, ForceMode.Impulse);
                         }
                         else
                         {
-                            m_Rigidbody.AddForce(0.1f, 0, -0.1f);
+                            m_Rigidbody.AddForce(0.1f, 0, -0.1f, ForceMode.Impulse);
                         }
                         break;
                     default:Debug.LogError("!!ÉâÉìÉ_ÉÄï˚å¸à⁄ìÆÇ≈ÉGÉâÅ[!!\n\r!! Error in random direction movement !! "); break;
