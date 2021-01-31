@@ -17,10 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/04_End1_TimeOver.unity
     guid: b6c33f95964dd1f4da0dd7266a1fda57
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/04_End2_LaughedAt.unity
+    guid: 80e91eb9d675076458dcb3300680fbc3
   m_configObjects: {}
