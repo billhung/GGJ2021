@@ -30,6 +30,20 @@ CapsuleCollider:
   m_Height: 1.7
   m_Direction: 1
   m_Center: {x: 0, y: 0.8000001, z: 0}
+--- !u!114 &639191879181743693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253099944492796310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f2a49e76d11e04692d7a1cef05bc8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  F: []
+  ItemNum: 0
 --- !u!114 &1099538974089472728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,30 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &639191879181743693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 253099944492796310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6f2a49e76d11e04692d7a1cef05bc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  F_1:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  F_2:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  F_3:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &7089861791194678797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,7 +410,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+      objectReference: {fileID: 9100000, guid: 7432cd302d5633e419414d61f42c51ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6499fb1e7ba97134fbd2fcb7fcb3116d, type: 3}
 --- !u!1 &253099944492796310 stripped
