@@ -15,7 +15,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_MoveSpeedMultiplier = 1f;
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
-        [SerializeField] int AddForcePower = 40;
+        private const int AddForcePower = 10;
+        private const int TurnChangeTimer = 80;
 
         Rigidbody m_Rigidbody;
 		Animator m_Animator;
@@ -45,14 +46,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
 
             StateNum = 0;
-            _state = State.Left;
+            _state = State.none;
+            _Direction = Direction.none;
 
         }
 
 
 		public void Move(Vector3 move, bool crouch, bool jump)
 		{
-            Debug.Log(move);
+            //Debug.Log(move);
             m_direction = move;
             // convert the world relative moveInput vector into a local-relative
             // turn amount and forward amount required to head in the desired
@@ -65,10 +67,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_ForwardAmount = move.z ;
             //Debug.Log("move.x = " + move.x +  "\n\rmove.z = " + move.z);
 			ApplyExtraTurnRotation();
-            ///original
-            ///進行方向ベクトルを＋する
-            //Vector3 transformPower = new Vector3(0f,0,30f);
-            m_Rigidbody.AddForce(m_direction * AddForcePower);
+
 
             // control and velocity handling is different when grounded and airborne:
             if (m_IsGrounded)
@@ -189,13 +188,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		}
 
         private enum State{
+            none,
             Right,
             Left,
+        }
+        private enum Direction
+        {
+            none,
+            RU,//右上
+            LU,//左上
+            RD,//右下
+            LD,//左下
         }
 
         private int StateNum;
         private State _state;
-        [SerializeField] public float TurnChangeTimer = 80;
+        private Direction _Direction;
 
 
         void ApplyExtraTurnRotation()
@@ -205,18 +213,31 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             float OriginlSpeed = m_StationaryTurnSpeed * Random.value;
             float turnSpeed = Mathf.Lerp(OriginlSpeed, m_MovingTurnSpeed, m_ForwardAmount);
 			transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
-            //Debug.Log(OriginlSpeed);
 
-            //original ランダムで右と左を向くように調整
-            /*
+            //original 進行方向に速度制限を設けて進む            
+            if (m_Rigidbody.velocity.x < 3 && m_Rigidbody.velocity.x > -3)
+            {
+                m_Rigidbody.AddForce(m_direction.x * AddForcePower, 0, 0);
+            }
+            //Vector3 transformPower = new Vector3(0f,0,30f);
+            if (m_Rigidbody.velocity.z < 3 && m_Rigidbody.velocity.z > -3)
+            {
+                m_Rigidbody.AddForce(0, 0, m_direction.z * AddForcePower);
+            }
+
+            //original 進行方向を割り出す
+            if (m_direction.x > 0 && m_direction.z > 0) _Direction = Direction.RU;
+            if (m_direction.x < 0 && m_direction.z > 0) _Direction = Direction.LU;
+            if (m_direction.x > 0 && m_direction.z < 0) _Direction = Direction.RD;
+            if (m_direction.x < 0 && m_direction.z < 0) _Direction = Direction.LD;
+            //Debug.Log(_Direction);
+
             if (m_TurnAmount != 0)
             {
                 StateNum++;
-                //Debug.Log(StateNum);
                 float _Random = Random.value;
                 if (StateNum > TurnChangeTimer)
                 {
-                    //Debug.Log("ON");
                     if (_Random < 0.5f)
                     {
                         _state = State.Left;
@@ -228,17 +249,64 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     StateNum = 0;
                 }
                 //Debug.Log(_state);
-
+                switch (_Direction)
+                {
+                    case Direction.RU:
+                        if (_state == State.Left)
+                        {
+                            m_Rigidbody.AddForce(-0.1f, 0, 0.1f, ForceMode.Impulse);
+                        }
+                        else
+                        {
+                            m_Rigidbody.AddForce(0.1f, 0, -0.1f, ForceMode.Impulse);
+                        }
+                        break;
+                    case Direction.LU:
+                        if (_state == State.Left)
+                        {
+                            m_Rigidbody.AddForce(-0.1f, 0, -0.1f, ForceMode.Impulse);
+                        }
+                        else
+                        {
+                            m_Rigidbody.AddForce(0.1f, 0, 0.1f, ForceMode.Impulse);
+                        }
+                        break;
+                    case Direction.RD:
+                        if (_state == State.Left)
+                        {
+                            m_Rigidbody.AddForce(0.1f, 0, 0.1f);
+                        }
+                        else
+                        {
+                            m_Rigidbody.AddForce(-0.1f, 0, -0.1f);
+                        }
+                        break;
+                    case Direction.LD:
+                        if (_state == State.Left)
+                        {
+                            m_Rigidbody.AddForce(-0.1f, 0, 0.1f);
+                        }
+                        else
+                        {
+                            m_Rigidbody.AddForce(0.1f, 0, -0.1f);
+                        }
+                        break;
+                    default:Debug.LogError("!!ランダム方向移動でエラー!!\n\r!! Error in random direction movement !! "); break;
+                }
+                /*
                 if (_state == State.Left)
                 {
-                    transform.Rotate(0, -3, 0);
+                    transform.Rotate(0, -5, 0);
                 }
                 else
                 {
-                    transform.Rotate(0, 3, 0);
+                    transform.Rotate(0, 5, 0);
                 }
+                */
             }
-            */
+            //m_Rigidbody.AddForce(10 * (m_direction - m_Rigidbody.velocity));    
+            //Debug.Log(m_Rigidbody.velocity);
+
         }
 
 
